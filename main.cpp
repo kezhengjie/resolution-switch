@@ -1,5 +1,6 @@
-#include <iostream>
-#include <string>
+#include <stdio.h>
+#include <stdlib.h>
+
 #include <windows.h>
 
 LONG change_monitor_settings(int width, int height, int refresh_rate) {
@@ -20,8 +21,8 @@ LONG change_monitor_settings(int width, int height, int refresh_rate) {
 }
 
 void print_help() {
-  std::cout << "rlsw.exe [width] [height] [refresh_rate]" << std::endl;
-  std::cout << "eg: rlsw.exe 1920 1080 60" << std::endl;
+  printf(
+      "rlsw.exe [width] [height] [refresh_rate]\neg: rlsw.exe 1920 1080 60\n");
 }
 
 int main(int argc, char **argv) {
@@ -35,8 +36,8 @@ int main(int argc, char **argv) {
     print_help();
     return 1;
   }
-  auto width = std::stoi(argv[1]);
-  auto height = std::stoi(argv[2]);
-  auto refresh_rate = std::stoi(argv[3]);
+  auto width = atoi(argv[1]);
+  auto height = atoi(argv[2]);
+  auto refresh_rate = atoi(argv[3]);
   return change_monitor_settings(width, height, refresh_rate);
 }
