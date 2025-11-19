@@ -29,7 +29,7 @@ void print_help()
 int main(int argc, char** argv)
 {
     for (int i = 0; i < argc; i++) {
-        if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help")) {
+        if ((strcmp(argv[i], "-h") == 0) || (strcmp(argv[i], "--help") == 0)) {
             print_help();
             return 0;
         }
@@ -38,8 +38,8 @@ int main(int argc, char** argv)
         print_help();
         return 1;
     }
-    auto width = atoi(argv[1]);
-    auto height = atoi(argv[2]);
-    auto refresh_rate = atoi(argv[3]);
+    int width = atoi(argv[1]);
+    int height = atoi(argv[2]);
+    int refresh_rate = atoi(argv[3]);
     return change_monitor_settings(width, height, refresh_rate);
 }
